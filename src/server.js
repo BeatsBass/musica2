@@ -33,7 +33,7 @@ app.get('/get/genre/:id', async (req, res) => {
             else {
                 const realInfo = await data(paramas)
                 res.json(realInfo)
-                await genreModel.findByIdAndUpdate(_id,{ contents: realInfo.contents })
+                await genreModel.findByIdAndUpdate(_id, { contents: realInfo.contents })
             }
         }
         else {
@@ -66,6 +66,12 @@ app.get('/', async (req, res) => {
     }
     console.log(ago)
     res.json(respuesta)
+})
+app.get('/:id', async (req, res) => {
+    const paramas = req.params.id
+    const realInfo = await data(paramas)
+    console.log(realInfo)
+    res.json({})
 })
 
 module.exports = app;

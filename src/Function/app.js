@@ -48,15 +48,16 @@ const genre = async (idGenre) => {
         const info = await data.json()
         return info
     },idGenre)
-    const title = getBd.header.musicHeaderRenderer.title.runs[0].text
+    /* const title = getBd.header.musicHeaderRenderer.title.runs[0].text
     const contents = getBd.contents.singleColumnBrowseResultsRenderer.tabs[0].tabRenderer.content.sectionListRenderer.contents
     const realInfo = {
         idGenre,
         title,
         contents
-    }
+    } */
     await browser.close();
-    return realInfo
+    /* return realInfo */
+    return getBd
 }
 
 module.exports = genre;
