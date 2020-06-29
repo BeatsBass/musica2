@@ -2,7 +2,6 @@ const puppeteer = require('puppeteer');
 
 const genre = async (idGenre) => {
     const browser = await puppeteer.launch({
-        headless:false,
         args: ["--no-sandbox"]
     });
     const page = await browser.newPage();
