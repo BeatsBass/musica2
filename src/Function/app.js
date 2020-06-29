@@ -17,7 +17,7 @@ const genre = async (idGenre) => {
         }
     });
 
-    await page.goto('https://music.youtube.com/moods_and_genres');
+    await page.goto('https://music.youtube.com/moods_and_genres',{ waitUntil: 'networkidle0' });
     const getBd = await page.evaluate(async (idGenre) => {
         const data = await fetch("https://music.youtube.com/youtubei/v1/browse?alt=json&key=AIzaSyC9XL3ZjWddXya6X74dJoCTL-WEYFDNX30", {
             "headers": {
@@ -47,6 +47,7 @@ const genre = async (idGenre) => {
         const info = await data.json()
         return info
     },idGenre)
+    console.log(page.url())
     /* const title = getBd.header.musicHeaderRenderer.title.runs[0].text
     const contents = getBd.contents.singleColumnBrowseResultsRenderer.tabs[0].tabRenderer.content.sectionListRenderer.contents
     const realInfo = {
