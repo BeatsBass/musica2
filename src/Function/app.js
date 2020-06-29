@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 const genre = async (idGenre) => {
     const browser = await puppeteer.launch({
         headless:true,
-        args:["--no-sandbox"]
+        args:["--no-sandbox",'--disable-setuid-sandbox']
     });
     const page = await browser.newPage();
     await page.setUserAgent('Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Mobile Safari/537.36');
